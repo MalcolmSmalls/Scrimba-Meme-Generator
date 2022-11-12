@@ -33,11 +33,11 @@ header > span {
   display:flex;
   justify-content:center;
 }
-form {
+.form {
   padding-top:72px;
 }
 
-form > input {
+.form > input {
   font-family: 'Karla', sans-serif;
   font-size:24px;
   width:460px;
@@ -46,11 +46,11 @@ form > input {
   border:2px #D5D4D8 solid;
 }
 
-form > input::placeholder {
+.form > input::placeholder {
   padding: 22px 20px;
 }
 
-form > button {
+.form > button {
   display:block;
   font-family: 'Karla', sans-serif;
   font-size:32px;
