@@ -1,0 +1,30 @@
+body {
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  color:white;
+}
+
+header {
+  height: 130px;
+  display:flex;
+  align-items:center;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+}
+
+header > h1 {
+  font-family: 'Karla', sans-serif;
+  font-weight:700;
+  font-size:42px;
+
+}
+
+header > img {
+  padding-left:41px;
+  padding-right:14.20px;
+  width:62.62px;
+}
+
+header > span {
+  margin-left:auto;
+  padding-right:74px;
+}
