@@ -28,3 +28,40 @@ header > span {
   margin-left:auto;
   padding-right:74px;
 }
+
+.form-container{
+  display:flex;
+  justify-content:center;
+}
+form {
+  padding-top:72px;
+}
+
+form > input {
+  font-family: 'Karla', sans-serif;
+  font-size:24px;
+  width:460px;
+  height:70px;
+  border-radius:10px;
+  border:2px #D5D4D8 solid;
+}
+
+form > input::placeholder {
+  padding: 22px 20px;
+}
+
+form > button {
+  display:block;
+  font-family: 'Karla', sans-serif;
+  font-size:32px;
+  color:white;
+  margin-top:30px;
+  width: calc(484px * 2);
+  height:80px;
+  border-radius:10px;
+  background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+}
+
+.first-input {
+  margin-right:34px;
+}
