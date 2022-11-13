@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { isCompositeComponent } from "react-dom/test-utils"
 import memesData from "../memesData"
 
 function Form(){
@@ -7,15 +8,24 @@ function Form(){
 
     const [ allMemesImages, setAllMemesImages ] = React.useState(memesData)
 
+    const [ meme, setMeme ] = React.useState(
+        {
+            topText: "",
+            bottomText: "",
+            randomImage: "http://i.imgflip.com/1bij.jpg"
+        }
+    
+    )
+
 
     function getData () {
         const pickedPic = allMemesImages.data.memes[Math.floor(Math.random() * 99)].url
         setPicture(pickedPic)
-        const meme = {
-            topText: "",
-            bottomText: "",
-            randomImage: pickedPic
-        }
+        setMeme(prevMeme => {
+            return (
+                {...prevMeme, randomImage: pickedPic}
+            )
+        })
     }
     return (
         <div className = "main-container">
@@ -25,7 +35,7 @@ function Form(){
             </div>
             <div className = "img-container">
                 <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
-                <img className = "meme-pic" src={picture}/>
+                <img className = "meme-pic" src={meme.randomImage}/>
             </div>
 
         </div>
