@@ -2,8 +2,13 @@ import React, { Component } from "react"
 import memesData from "../memesData"
 
 function Form(){
+
+    const [ picture, setPicture ] = React.useState("")
+
+
     function getData () {
-        console.log(memesData.data.memes[Math.floor(Math.random() * 99)].url)
+        const pickedPic = memesData.data.memes[Math.floor(Math.random() * 99)].url
+        setPicture(pickedPic)
     }
     return (
         <div className = "form-container">
@@ -11,6 +16,9 @@ function Form(){
                 <input className = "first-input" placeholder = "Shut up"></input>
                 <input className = "second-input" placeholder = "and take my money"></input>
                 <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
+            </div>
+            <div className = "img-container">
+                <img src={picture}/>
             </div>
         </div>
     )
