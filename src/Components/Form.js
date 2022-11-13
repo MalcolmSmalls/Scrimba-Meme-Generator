@@ -5,10 +5,17 @@ function Form(){
 
     const [ picture, setPicture ] = React.useState("")
 
+    const [ allMemesImages, setAllMemesImages ] = React.useState(memesData)
+
 
     function getData () {
-        const pickedPic = memesData.data.memes[Math.floor(Math.random() * 99)].url
+        const pickedPic = allMemesImages.data.memes[Math.floor(Math.random() * 99)].url
         setPicture(pickedPic)
+        const meme = {
+            topText: "",
+            bottomText: "",
+            randomImage: pickedPic
+        }
     }
     return (
         <div className = "main-container">
