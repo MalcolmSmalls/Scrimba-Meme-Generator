@@ -11,15 +11,16 @@ function Form(){
         setPicture(pickedPic)
     }
     return (
-        <div className = "form-container">
+        <div className = "main-container">
             <div className = "form">
                 <input className = "first-input" placeholder = "Shut up"></input>
                 <input className = "second-input" placeholder = "and take my money"></input>
-                <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
             </div>
             <div className = "img-container">
-                <img src={picture}/>
+                <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
+                <img className = "meme-pic" src={picture}/>
             </div>
+
         </div>
     )
 }

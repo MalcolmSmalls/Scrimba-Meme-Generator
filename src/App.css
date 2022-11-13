@@ -29,12 +29,15 @@ header > span {
   padding-right:74px;
 }
 
-.form-container{
+.main-container{
   display:flex;
-  justify-content:center;
+  flex-direction:column;
 }
+
 .form {
   padding-top:72px;
+  display:flex;
+  justify-content:center;
 }
 
 .form > input {
@@ -50,12 +53,13 @@ header > span {
   padding: 22px 20px;
 }
 
-.form > button {
-  display:block;
+.submit {
+  /* display:block; */
   font-family: 'Karla', sans-serif;
   font-size:32px;
   color:white;
   margin-top:30px;
+  margin-bottom:calc(47px * 2);
   width: calc(484px * 2);
   height:80px;
   border-radius:10px;
@@ -64,4 +68,20 @@ header > span {
 
 .first-input {
   margin-right:34px;
+}
+
+.img-container {
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+
+}
+
+.meme-pic {
+  width: calc(484px * 2);
+  margin-bottom:calc(55px * 2)
+}
+
+.bottom {
+  height:(calc)
 }
