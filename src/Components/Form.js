@@ -12,7 +12,8 @@ function Form(){
         {
             topText: "",
             bottomText: "",
-            randomImage: "http://i.imgflip.com/1bij.jpg"
+            randomImage: "http://i.imgflip.com/1bij.jpg",
+            isSet: false
         }
     
     )
@@ -36,7 +37,7 @@ function Form(){
         setMeme(prevMeme => {
             return (
                 {...prevMeme, 
-                [name]: value
+                [name]: value,
                 }
             )
         })
@@ -49,10 +50,23 @@ function Form(){
         setMeme(prevMeme => {
             return (
                 {...prevMeme,
-                randomImage: pickedPic}
+                randomImage: pickedPic,
+                isSet: !prevMeme.isSet}
             )
         })
     }
+
+
+    
+    function submitText(){
+    }
+
+    const styles = {
+        display: meme.isSet === false ? 'none' : 'block',   
+    }
+
+    // console.log(styles)
+    // console.log(meme.isSet)
 
     return (
         <div className = "main-container">
@@ -77,7 +91,7 @@ function Form(){
                         />
                     </div>
                     <div className="btn-container">
-                        <button type="submit" className = "submit" >Get a new image 🖼️</button>
+                        <button className = "submit" onClick={submitText} >Get a new image 🖼️</button>
                     </div>
                 </form>
             <div className = "img-container">
@@ -86,8 +100,8 @@ function Form(){
                 <div className="meme">
                 <img className = "meme-pic" src={meme.randomImage}/>
                 {/* <img src={meme.randomImage} className="meme--image" /> */}
-                <h2 className="meme--text top">One does not simply</h2>
-                <h2 className="meme--text bottom">Walk into Mordor</h2>
+                <h2 className="meme--text top" style={styles}>{meme.topText}</h2>
+                <h2 className="meme--text bottom" style={styles}>{meme.bottomText}</h2>
             </div>
             </div>
 
