@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isCompositeComponent } from "react-dom/test-utils"
-import memesData from "../memesData"
+
 
 function Form(){
 
@@ -46,7 +46,7 @@ function Form(){
 
     function handleSubmit(event){
         event.preventDefault()
-        const pickedPic = allMemes.data.memes[Math.floor(Math.random() * 99)].url
+        const pickedPic = allMemes[Math.floor(Math.random() * 99)].url
         setMeme(prevMeme => {
             return (
                 {...prevMeme,
@@ -59,18 +59,13 @@ function Form(){
     React.useEffect( () => {
         fetch('https://api.imgflip.com/get_memes')
         .then(res => res.json())
-        .then(data => setAllMemes(data))
+        .then(data => setAllMemes(data.data.memes))
     }, [])
     
-    function submitText(){
-    }
 
-    const styles = {
-        display: meme.isSet === false ? 'none' : 'block',   
-    }
-
-    // console.log(styles)
-    // console.log(meme.isSet)
+    // const styles = {
+    //     display: meme.isSet === false ? 'none' : 'block',   
+    // }
 
     return (
         <div className = "main-container">
@@ -95,7 +90,7 @@ function Form(){
                         />
                     </div>
                     <div className="btn-container">
-                        <button className = "submit" onClick={submitText} >Get a new image 🖼️</button>
+                        <button className = "submit">Get a new image 🖼️</button>
                     </div>
                 </form>
             <div className = "img-container">
@@ -104,8 +99,8 @@ function Form(){
                 <div className="meme">
                 <img className = "meme-pic" src={meme.randomImage}/>
                 {/* <img src={meme.randomImage} className="meme--image" /> */}
-                <h2 className="meme--text top" style={styles}>{meme.topText}</h2>
-                <h2 className="meme--text bottom" style={styles}>{meme.bottomText}</h2>
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
             </div>
 
