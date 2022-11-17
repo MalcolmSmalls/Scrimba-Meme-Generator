@@ -6,7 +6,7 @@ function Form(){
 
     const [ picture, setPicture ] = React.useState("")
 
-    const [ allMemesImages, setAllMemesImages ] = React.useState(memesData)
+    const [ allMemes, setAllMemes ] = React.useState()
 
     const [ meme, setMeme ] = React.useState(
         {
@@ -46,7 +46,7 @@ function Form(){
 
     function handleSubmit(event){
         event.preventDefault()
-        const pickedPic = allMemesImages.data.memes[Math.floor(Math.random() * 99)].url
+        const pickedPic = allMemes.data.memes[Math.floor(Math.random() * 99)].url
         setMeme(prevMeme => {
             return (
                 {...prevMeme,
@@ -56,7 +56,11 @@ function Form(){
         })
     }
 
-
+    React.useEffect( () => {
+        fetch('https://api.imgflip.com/get_memes')
+        .then(res => res.json())
+        .then(data => setAllMemes(data))
+    }, [])
     
     function submitText(){
     }
