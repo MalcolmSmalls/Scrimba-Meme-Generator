@@ -66,6 +66,11 @@ header > span {
   background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
 }
 
+.btn-container{
+  display:flex;
+  justify-content:center;
+}
+
 .first-input {
   margin-right:34px;
 }

@@ -29,12 +29,18 @@ function Form(){
     }
     return (
         <div className = "main-container">
-            <div className = "form">
-                <input className = "first-input" placeholder = "Shut up"></input>
-                <input className = "second-input" placeholder = "and take my money"></input>
-            </div>
+            
+                <form>
+                    <div className = "form">
+                        <input className = "first-input" placeholder = "Shut up"></input>
+                        <input className = "second-input" placeholder = "and take my money"></input>
+                    </div>
+                    <div className="btn-container">
+                        <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
+                    </div>
+                </form>
             <div className = "img-container">
-                <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
+                {/* <button className = "submit" onClick = {getData}>Get a new image 🖼️</button> */}
                 {/* <img className = "meme-pic" src={meme.randomImage}/> */}
                 <div className="meme">
                 <img className = "meme-pic" src={meme.randomImage}/>
