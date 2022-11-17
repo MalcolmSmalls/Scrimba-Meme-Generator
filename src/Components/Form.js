@@ -18,25 +18,66 @@ function Form(){
     )
 
 
-    function getData () {
-        const pickedPic = allMemesImages.data.memes[Math.floor(Math.random() * 99)].url
-        setPicture(pickedPic)
+    // function getData () {
+    //     const pickedPic = allMemesImages.data.memes[Math.floor(Math.random() * 99)].url
+    //     setPicture(pickedPic)
+    //     console.log(picture)
+    //     console.log(meme)
+    //     setMeme(prevMeme => {
+    //         return (
+    //             {...prevMeme, randomImage: pickedPic}
+    //         )
+    //     })
+    // }
+
+    function handleChange(event){
+
+        const { name, value } = event.target
         setMeme(prevMeme => {
             return (
-                {...prevMeme, randomImage: pickedPic}
+                {...prevMeme, 
+                [name]: value
+                }
+            )
+        })
+
+    }
+
+    function handleSubmit(event){
+        event.preventDefault()
+        const pickedPic = allMemesImages.data.memes[Math.floor(Math.random() * 99)].url
+        setMeme(prevMeme => {
+            return (
+                {...prevMeme,
+                randomImage: pickedPic}
             )
         })
     }
+
     return (
         <div className = "main-container">
             
-                <form>
+                <form onSubmit = {handleSubmit}>
                     <div className = "form">
-                        <input className = "first-input" placeholder = "Shut up"></input>
-                        <input className = "second-input" placeholder = "and take my money"></input>
+                        <input 
+                            type="text"
+                            className = "first-input"
+                            name="topText" 
+                            placeholder = "Shut up"
+                            onChange = {handleChange}
+                            value={meme.textTop}
+                        />
+                        <input 
+                            type="text"
+                            name="bottomText"
+                            className = "second-input" 
+                            placeholder = "and take my money"
+                            onChange = {handleChange}
+                            value={meme.bottomText}
+                        />
                     </div>
                     <div className="btn-container">
-                        <button className = "submit" onClick = {getData}>Get a new image 🖼️</button>
+                        <button type="submit" className = "submit" >Get a new image 🖼️</button>
                     </div>
                 </form>
             <div className = "img-container">
